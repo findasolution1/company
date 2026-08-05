@@ -18,6 +18,7 @@ body {
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.6;
+    word-break: keep-all; /* 모바일에서 글자 줄바꿈 자연스럽게 처리 */
 }
 
 /* ================= 헤더 & 네비게이션 ================= */
@@ -25,7 +26,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 15px 5%;
     background-color: rgba(13, 13, 13, 0.95);
     position: fixed;
     width: 100%;
@@ -35,7 +36,7 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--text-main);
     letter-spacing: -0.5px;
@@ -44,13 +45,13 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 nav a {
     color: var(--text-main);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.3s;
 }
@@ -61,28 +62,28 @@ nav a:hover {
 
 /* ================= 공통 섹션 & 서브페이지 ================= */
 section {
-    padding: 100px 5%;
+    padding: 80px 5%;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
     color: var(--accent);
 }
 
 .section-header p {
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
-/* 메인 배너가 없는 서브 페이지(회사소개 등) 상단 여백 확보 */
+/* 서브페이지 상단 여백 */
 .sub-page {
-    padding-top: 150px; 
+    padding-top: 130px; 
     min-height: 100vh;
 }
 
@@ -94,11 +95,11 @@ section {
     justify-content: center;
     text-align: center;
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-    padding-top: 80px; 
+    padding-top: 60px; 
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     font-weight: 800;
     line-height: 1.3;
     margin-bottom: 20px;
@@ -109,202 +110,196 @@ section {
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     color: #ccc;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 15px 40px;
+    padding: 12px 30px;
     background-color: var(--accent);
     color: #000;
     text-decoration: none;
     font-weight: 700;
     border-radius: 4px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: background 0.3s, transform 0.3s;
 }
 
-.btn-primary:hover {
-    background-color: #fce883;
-    transform: translateY(-3px);
-}
-
-/* ================= 회사소개 섹션 (about.html) ================= */
-.features {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.feature-card {
-    flex: 1;
-    min-width: 320px;
-    background-color: var(--bg-secondary);
-    border-radius: 8px;
-    border-top: 3px solid var(--accent);
-    transition: transform 0.3s;
-    overflow: hidden; /* 사진 및 내용 잘라내기 */
-    display: flex;
-    flex-direction: column;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-}
-
-.feature-img {
-    width: 100%;
-    height: 240px;
-    overflow: hidden;
-}
-
-.feature-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 사진 비율 고정 */
-    display: block;
-}
-
-.feature-text {
-    padding: 30px;
-    flex-grow: 1;
-}
-
-.feature-text h3 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-}
-
-.feature-text p {
-    color: var(--text-muted);
-}
-
-/* ================= 시공 프로세스 (process.html) ================= */
-.process-page {
-    background-color: #111;
-}
-
-.process-steps {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.step {
-    flex: 1;
-    text-align: center;
-    min-width: 200px;
-}
-
-.step-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: rgba(212, 175, 55, 0.2);
-    margin-bottom: 10px;
-}
-
-.step h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.step p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-}
-
-.step-arrow {
-    font-size: 1.5rem;
-    color: #444;
-}
-
-.process-grid {
+/* ================= 회사소개 / 프로세스 / 시공사례 카드 그리드 ================= */
+.features, .process-grid, .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.process-card {
+.feature-card, .process-card, .portfolio-item {
     background-color: var(--bg-secondary);
     border-radius: 8px;
     border-top: 3px solid var(--accent);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s;
 }
 
-.process-card:hover {
-    transform: translateY(-10px);
-}
-
-.process-img {
+.feature-img, .process-img, .portfolio-item img {
     width: 100%;
     height: 220px;
     overflow: hidden;
 }
 
-.process-img img {
+.feature-img img, .process-img img, .portfolio-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.process-text {
-    padding: 30px;
+.feature-text, .process-text, .portfolio-info {
+    padding: 25px;
     flex-grow: 1;
-    text-align: left;
+}
+
+.feature-text h3, .process-text h3, .portfolio-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.feature-text p, .process-text p, .portfolio-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
 .process-text .step-number {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: rgba(212, 175, 55, 0.3);
     margin-bottom: 5px;
 }
 
-.process-text h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #fff;
+/* ================= 문의하기 페이지 (contact.html) ================= */
+.contact-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--bg-secondary);
+    padding: 40px;
+    border-radius: 8px;
+    border-top: 3px solid var(--accent);
 }
 
-.process-text p {
-    font-size: 0.95rem;
+.contact-info-box, .contact-form-box {
+    flex: 1;
+}
+
+.contact-info-box h3 {
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.contact-info-box p {
     color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
 }
 
-/* 사진 클릭 링크 영역 정렬 */
-.feature-img a, .process-img a {
+.contact-info-box ul {
+    list-style: none;
+}
+
+.contact-info-box ul li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    word-break: break-all;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
     display: block;
+    margin-bottom: 5px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.form-group input, 
+.form-group textarea {
     width: 100%;
-    height: 100%;
+    padding: 12px;
+    background-color: #222;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
 /* ================= 푸터 ================= */
 footer {
     background-color: #050505;
-    padding: 60px 5%;
+    padding: 40px 5%;
     text-align: center;
     border-top: 1px solid #222;
 }
 
-/* ================= 모바일 반응형 ================= */
+.footer-content h2 {
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.contact-info p, .business-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+/* ================= 모바일 반응형 처리 (스마트폰 최적화) ================= */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    .process-steps { flex-direction: column; }
-    .step-arrow { transform: rotate(90deg); margin: 20px 0; }
-    nav ul { display: none; }
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 5%;
+    }
+    
+    nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    .hero h1 { 
+        font-size: 2rem; 
+    }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .sub-page {
+        padding-top: 150px; /* 모바일에서 메뉴가 두 줄이 될 경우를 대비한 여백 */
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .features, .process-grid, .portfolio-grid {
+        grid-template-columns: 1fr; /* 모바일에서는 카드가 한 줄에 하나씩 꽉 차게 정렬 */
+    }
 }
