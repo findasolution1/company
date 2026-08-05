@@ -280,3 +280,85 @@ footer {
 .process-page {
     background-color: #111;
 }
+/* 문의하기 페이지(Contact) 스타일 */
+.contact-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--bg-secondary);
+    padding: 50px;
+    border-radius: 8px;
+    border-top: 3px solid var(--accent);
+}
+
+.contact-info-box, .contact-form-box {
+    flex: 1;
+}
+
+.contact-info-box h3 {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.contact-info-box p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.contact-info-box ul {
+    list-style: none;
+}
+
+.contact-info-box ul li {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: var(--text-main);
+}
+
+.contact-info-box ul li strong {
+    color: var(--accent);
+    display: inline-block;
+    width: 80px;
+}
+
+/* 폼 스타일 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: #222;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* 모바일 반응형 처리 (문의하기 폼) */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+}
