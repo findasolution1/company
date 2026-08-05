@@ -1,10 +1,10 @@
-/* 기본 설정 */
+/* ================= 기본 설정 ================= */
 :root {
     --bg-main: #0d0d0d;
     --bg-secondary: #1a1a1a;
     --text-main: #f5f5f5;
     --text-muted: #a3a3a3;
-    --accent: #d4af37; /* 고급스러운 골드 컬러 */
+    --accent: #d4af37; /* 골드 컬러 */
 }
 
 * {
@@ -20,13 +20,13 @@ body {
     line-height: 1.6;
 }
 
-/* 헤더 & 네비게이션 */
+/* ================= 헤더 & 네비게이션 ================= */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background-color: rgba(13, 13, 13, 0.9);
+    background-color: rgba(13, 13, 13, 0.95);
     position: fixed;
     width: 100%;
     top: 0;
@@ -59,7 +59,7 @@ nav a:hover {
     color: var(--accent);
 }
 
-/* 공통 섹션 스타일 */
+/* ================= 공통 섹션 & 서브페이지 ================= */
 section {
     padding: 100px 5%;
 }
@@ -80,14 +80,19 @@ section {
     font-size: 1.1rem;
 }
 
-/* 메인 히어로 섹션 (배경 이미지 적용) */
+/* 메인 배너가 없는 서브 페이지(회사소개 등) 상단 여백 확보 */
+.sub-page {
+    padding-top: 150px; 
+    min-height: 100vh;
+}
+
+/* ================= 메인 배너 (index.html) ================= */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* 고화질 체육관 이미지와 검은색 반투명 오버레이 */
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
     padding-top: 80px; 
 }
@@ -126,20 +131,23 @@ section {
     transform: translateY(-3px);
 }
 
-/* 회사소개 섹션 */
+/* ================= 회사소개 섹션 (about.html) ================= */
+.features {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .feature-card {
     flex: 1;
-    min-width: 300px;
+    min-width: 320px;
     background-color: var(--bg-secondary);
     border-radius: 8px;
     border-top: 3px solid var(--accent);
     transition: transform 0.3s;
-    overflow: hidden; /* ★중요: 사진이나 내용이 카드를 삐져나가지 않도록 잘라냅니다 */
+    overflow: hidden; /* 사진 및 내용 잘라내기 */
     display: flex;
     flex-direction: column;
 }
@@ -150,20 +158,20 @@ section {
 
 .feature-img {
     width: 100%;
-    height: 240px; /* 세 장의 사진 높이를 모두 240px로 통일 */
+    height: 240px;
     overflow: hidden;
 }
 
 .feature-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ★중요: 찌그러짐 없이 주어진 영역에 꽉 차게 잘라서 보여줍니다 */
+    object-fit: cover; /* 사진 비율 고정 */
     display: block;
 }
 
 .feature-text {
     padding: 30px;
-    flex-grow: 1; /* 사진 아래 빈 공간이 생기더라도 텍스트 영역이 끝까지 채워지게 합니다 */
+    flex-grow: 1;
 }
 
 .feature-text h3 {
@@ -175,8 +183,8 @@ section {
     color: var(--text-muted);
 }
 
-/* 시공 프로세스 섹션 (새로 추가됨) */
-.process {
+/* ================= 시공 프로세스 (process.html) ================= */
+.process-page {
     background-color: #111;
 }
 
@@ -186,6 +194,8 @@ section {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .step {
@@ -197,7 +207,7 @@ section {
 .step-number {
     font-size: 2.5rem;
     font-weight: 800;
-    color: rgba(212, 175, 55, 0.2); /* 골드 색상 투명하게 */
+    color: rgba(212, 175, 55, 0.2);
     margin-bottom: 10px;
 }
 
@@ -217,45 +227,7 @@ section {
     color: #444;
 }
 
-/* 시공사례 섹션 */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.portfolio-item {
-    background-color: var(--bg-secondary);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.portfolio-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.portfolio-item:hover img {
-    transform: scale(1.05);
-}
-
-.portfolio-info {
-    padding: 20px;
-}
-
-.portfolio-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.portfolio-info p {
-    color: var(--accent);
-    font-size: 0.9rem;
-}
-
-/* 푸터 섹션 */
+/* ================= 푸터 ================= */
 footer {
     background-color: #050505;
     padding: 60px 5%;
@@ -263,121 +235,10 @@ footer {
     border-top: 1px solid #222;
 }
 
-.footer-content h2 {
-    color: var(--accent);
-    margin-bottom: 15px;
-}
-
-.contact-info {
-    margin: 30px 0;
-    color: var(--text-muted);
-}
-
-.contact-info p {
-    margin-bottom: 8px;
-}
-
-.copyright {
-    color: #555;
-    font-size: 0.9rem;
-    margin-top: 40px;
-}
-
-/* 모바일 반응형 처리 */
+/* ================= 모바일 반응형 ================= */
 @media (max-width: 768px) {
     .hero h1 { font-size: 2.2rem; }
     .process-steps { flex-direction: column; }
     .step-arrow { transform: rotate(90deg); margin: 20px 0; }
-    nav ul { display: none; /* 모바일용 메뉴는 추후 구현 가능 */ }
-}
-/* 서브 페이지 공통 스타일 추가 */
-.sub-page {
-    padding-top: 150px; /* 고정 헤더에 내용이 가려지지 않도록 여백 추가 */
-    min-height: 100vh;
-}
-
-.process-page {
-    background-color: #111;
-}
-/* 문의하기 페이지(Contact) 스타일 */
-.contact-container {
-    display: flex;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-    background-color: var(--bg-secondary);
-    padding: 50px;
-    border-radius: 8px;
-    border-top: 3px solid var(--accent);
-}
-
-.contact-info-box, .contact-form-box {
-    flex: 1;
-}
-
-.contact-info-box h3 {
-    font-size: 1.5rem;
-    color: var(--accent);
-    margin-bottom: 20px;
-}
-
-.contact-info-box p {
-    color: var(--text-muted);
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.contact-info-box ul {
-    list-style: none;
-}
-
-.contact-info-box ul li {
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-    color: var(--text-main);
-}
-
-.contact-info-box ul li strong {
-    color: var(--accent);
-    display: inline-block;
-    width: 80px;
-}
-
-/* 폼 스타일 */
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 15px;
-    background-color: #222;
-    border: 1px solid #444;
-    color: #fff;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border 0.3s;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-}
-
-/* 모바일 반응형 처리 (문의하기 폼) */
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        padding: 30px 20px;
-    }
+    nav ul { display: none; }
 }
