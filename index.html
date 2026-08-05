@@ -4,130 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find a solution - 프리미엄 체육관 인테리어 솔루션</title>
-    <!-- 전문적인 느낌을 주는 프리텐다드 웹폰트 적용 -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">FIND A SOLUTION</div>
+        <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Find a solution.</a></div>
         <nav>
             <ul>
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#about">회사소개</a></li>
-                <li><a href="#process">시공 프로세스</a></li>
-                <li><a href="#portfolio">시공사례</a></li>
-                <li><a href="#contact">문의하기</a></li>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="about.html">회사소개</a></li>
+                <li><a href="process.html">시공 프로세스</a></li>
+                <li><a href="portfolio.html">시공사례</a></li>
+                <li><a href="contact.html">문의하기</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- 배경 이미지가 적용될 메인 섹션 -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="hero-content">
             <h1>한계 없는 퍼포먼스를 위한 공간,<br><span>Find a solution</span></h1>
-            <p>충격을 완벽히 흡수하는 고밀도 고무매트 바닥 시공부터, 체육관의 시그니처가 될 커스텀 복싱링 제작까지<br>크로스핏, 복싱, 피트니스 GYM 전문 인테리어 솔루션을 제공합니다</p>
-            <a href="#contact" class="btn-primary">무료 실측 및 견적 문의</a>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="section-header">
-            <h2>회사소개</h2>
-            <p>우리는 단순한 인테리어를 넘어, 운동에 최적화된 하드웨어를 설계합니다</p>
-        </div>
-        <div class="features">
-            <div class="feature-card">
-                <h3>커스터마이징(Customizing)</h3>
-                <p></p>글러브, 샌드백, 복싱링 등 스페이스 전반을 아우르는 로고 커스터마이징을 통해 체육관의 시각적 브랜딩 효과와 공간의 완성도를 극대화합니다
-            </div>
-            <div class="feature-card">
-                <h3>특수 바닥재 시공(Flooring)</h3>
-                <p>미끄럼 방지 에버롤, 층간(충격)소음 방지 매트, 헤비드랍을 견디는 고무매트, 블럭 등 공간 특성에 맞춘 완벽한 바닥 단차 및 충격 흡수 시공을 자랑합니다</p>
-            </div>
-            <div class="feature-card">
-                <h3>공간 및 동선 설계 (Space Plan)</h3>
-                <p>스테이션, 리깅, 잔디(슬레드) 설치 등 원하시는 공간 및 동선 설계를 적극 반영하여 회원의 안전과 운동 효율을 극대화합니다</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 새롭게 추가된 시공 프로세스 영역 -->
-    <section id="process" class="process">
-        <div class="section-header">
-            <h2>시공 프로세스</h2>
-            <p>투명하고 체계적인 과정으로 완벽한 공간을 완성합니다.</p>
-        </div>
-        <div class="process-steps">
-            <div class="step">
-                <div class="step-number">01</div>
-                <h3>상담 및 견적</h3>
-                <p>현장 상황과 예산을 고려한<br>최적의 솔루션 제안</p>
-            </div>
-            <div class="step-arrow">➔</div>
-            <div class="step">
-                <div class="step-number">02</div>
-                <h3>실측 및 3D 설계</h3>
-                <p>정밀한 현장 실측을 통한<br>공간 동선 및 배치 기획</p>
-            </div>
-            <div class="step-arrow">➔</div>
-            <div class="step">
-                <div class="step-number">03</div>
-                <h3>맞춤형 정밀 시공</h3>
-                <p>오차 없는 바닥재 평탄화 및<br>안전 규격에 맞춘 설비 설치</p>
-            </div>
-            <div class="step-arrow">➔</div>
-            <div class="step">
-                <div class="step-number">04</div>
-                <h3>검수 및 사후관리</h3>
-                <p>완벽한 마감 확인 및<br>신속하고 철저한 A/S 보장</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio">
-        <div class="section-header">
-            <h2>시공사례</h2>
-            <p>Find a solution이 완성한 최적의 훈련 공간들입니다.</p>
-        </div>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img alt="복싱링 시공" src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=800&q=80">
-                <div class="portfolio-info">
-                    <h3>강남 OOO 복싱짐</h3>
-                    <p>커스텀 복싱링 & 조명 설계</p>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <img alt="크로스핏 바닥 시공" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80">
-                <div class="portfolio-info">
-                    <h3>성수 OOO 크로스핏</h3>
-                    <p>고밀도 고무매트 & 리깅 설치</p>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <img alt="피트니스 센터 시공" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80">
-                <div class="portfolio-info">
-                    <h3>판교 OOO 피트니스</h3>
-                    <p>프리웨이트존 에버롤 & 머신존 시공</p>
-                </div>
-            </div>
+            <p>충격을 완벽히 흡수하는 고밀도 고무매트 바닥 시공부터, 체육관의 시그니처가 될 커스텀 복싱링 제작까지.<br>크로스핏, 복싱, 피트니스 GYM 전문 인테리어 솔루션을 제공합니다.</p>
+            <a href="contact.html" class="btn-primary">무료 실측 및 견적 문의</a>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <h2>문의하기</h2>
-            <p>현장 실측 및 체육관 창업 관련 인테리어 상담을 환영합니다.</p>
-            <div class="contact-info">
-                <p><strong>TEL :</strong> 010-4092-5906</p>
-                <p><strong>EMAIL :</strong> songinshik1@naver.com</p>
+            <h2 style="color: var(--accent); margin-bottom: 15px;">Find a solution</h2>
+            <div class="contact-info" style="margin-bottom: 20px;">
+                <p><strong>TEL :</strong> 010-0000-0000 | <strong>EMAIL :</strong> contact@findasolution.com</p>
                 <p><strong>INSTAGRAM :</strong> @findasolution_official</p>
             </div>
-            <p class="copyright">© 2026 Find a solution. All rights reserved.</p>
+            <div class="business-info" style="color: #666; font-size: 0.85rem; line-height: 1.8;">
+                <p>상호명 : 파인드어솔루션 | 대표자 : OOO | 사업자등록번호 : 000-00-00000</p>
+                <p>통신판매업신고 : 제 2026-서울강남-0000호 | 주소 : 서울특별시 강남구 OOO로 123, 1층</p>
+                <p class="copyright" style="margin-top: 15px; color: #444;">© 2026 Find a solution. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+</body>
+</html>
 </body>
 </html>
