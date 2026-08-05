@@ -265,11 +265,17 @@ section {
 }
 
 /* ================= 푸터 ================= */
+/* ================= 푸터 (왼쪽 정렬 적용) ================= */
 footer {
     background-color: #050505;
     padding: 40px 5%;
-    text-align: center;
+    text-align: left; /* 왼쪽 정렬로 변경 */
     border-top: 1px solid #222;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto; /* 본문 컨테이너와 라인 맞춤 */
 }
 
 .footer-content h2 {
