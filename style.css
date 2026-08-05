@@ -271,3 +271,12 @@ footer {
     .step-arrow { transform: rotate(90deg); margin: 20px 0; }
     nav ul { display: none; /* 모바일용 메뉴는 추후 구현 가능 */ }
 }
+/* 서브 페이지 공통 스타일 추가 */
+.sub-page {
+    padding-top: 150px; /* 고정 헤더에 내용이 가려지지 않도록 여백 추가 */
+    min-height: 100vh;
+}
+
+.process-page {
+    background-color: #111;
+}
