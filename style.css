@@ -286,6 +286,13 @@ section {
     color: var(--text-muted);
 }
 
+/* 사진 클릭 링크 영역 정렬 */
+.feature-img a, .process-img a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 /* ================= 푸터 ================= */
 footer {
     background-color: #050505;
