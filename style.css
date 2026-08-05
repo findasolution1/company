@@ -18,7 +18,7 @@ body {
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.6;
-    word-break: keep-all; /* 모바일에서 글자 줄바꿈 자연스럽게 처리 */
+    word-break: keep-all;
 }
 
 /* ================= 헤더 & 네비게이션 ================= */
@@ -81,7 +81,6 @@ section {
     font-size: 1rem;
 }
 
-/* 서브페이지 상단 여백 */
 .sub-page {
     padding-top: 130px; 
     min-height: 100vh;
@@ -127,11 +126,25 @@ section {
     transition: background 0.3s, transform 0.3s;
 }
 
-/* ================= 회사소개 / 프로세스 / 시공사례 카드 그리드 ================= */
-.features, .process-grid, .portfolio-grid {
+.btn-primary:hover {
+    background-color: #fce883;
+    transform: translateY(-3px);
+}
+
+/* ================= 회사소개 / 시공사례 카드 그리드 ================= */
+.features, .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ================= 시공 프로세스 그리드 (PC 4개 한 줄 고정) ================= */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -143,12 +156,23 @@ section {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover, .process-card:hover {
+    transform: translateY(-10px);
 }
 
 .feature-img, .process-img, .portfolio-item img {
     width: 100%;
-    height: 220px;
+    height: 200px;
     overflow: hidden;
+}
+
+.feature-img a, .process-img a {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .feature-img img, .process-img img, .portfolio-item img {
@@ -164,17 +188,17 @@ section {
 }
 
 .feature-text h3, .process-text h3, .portfolio-info h3 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     margin-bottom: 10px;
 }
 
 .feature-text p, .process-text p, .portfolio-info p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .process-text .step-number {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 800;
     color: rgba(212, 175, 55, 0.3);
     margin-bottom: 5px;
@@ -260,9 +284,8 @@ footer {
     margin-bottom: 5px;
 }
 
-/* ================= 모바일 반응형 최적화 (스마트폰 전용) ================= */
+/* ================= 모바일 반응형 처리 (스마트폰 최적화) ================= */
 @media (max-width: 768px) {
-    /* 1. 상단 헤더: 배경을 완벽히 불투명하게 하고 로고와 메뉴를 선으로 확실히 분리 */
     header {
         flex-direction: column;
         padding: 12px 4%;
@@ -274,7 +297,7 @@ footer {
         width: 100%;
         text-align: center;
         padding-bottom: 10px;
-        border-bottom: 1px solid #222; /* 로고와 메뉴바 사이의 깔끔한 구분선 */
+        border-bottom: 1px solid #222;
         margin-bottom: 10px;
         font-size: 1.25rem;
         letter-spacing: 0.5px;
@@ -298,12 +321,10 @@ footer {
         color: #ddd;
     }
 
-    /* 2. 서브페이지 상단 여백 조절 (메뉴가 두 줄이 되어도 내용이 가리지 않도록 넉넉히 확보) */
     .sub-page {
         padding-top: 150px; 
     }
 
-    /* 3. 메인 히어로 폰트 크기 모바일 최적화 */
     .hero h1 { 
         font-size: 2.1rem; 
         line-height: 1.3;
@@ -318,13 +339,11 @@ footer {
         font-size: 1.8rem;
     }
 
-    /* 4. 카드 및 컨테이너 정렬 (모바일에서 한 줄씩 꽉 차게) */
     .features, .process-grid, .portfolio-grid {
         grid-template-columns: 1fr; 
         gap: 20px;
     }
 
-    /* 5. 문의하기 페이지 텍스트 깨짐 방지 (이메일, URL 줄바꿈 정상화) */
     .contact-container {
         flex-direction: column;
         padding: 20px;
@@ -332,15 +351,14 @@ footer {
 
     .contact-info-box ul li {
         font-size: 0.85rem;
-        word-break: break-all; /* 긴 영문 주소나 메일이 박스를 뚫고 나가지 않게 강제 줄바꿈 */
+        word-break: break-all;
         line-height: 1.5;
     }
 
     .contact-info-box ul li strong {
-        width: 65px; /* 모바일에서 라벨 너비 축소 */
+        width: 65px;
     }
 
-    /* 6. 모바일 푸터 정렬 */
     footer {
         padding: 30px 4%;
     }
