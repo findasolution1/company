@@ -1,13 +1,14 @@
-<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회사소개 - Find a solution</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
+    <!-- 고정 헤더 -->
     <header>
         <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">FIND A SOLUTION</a></div>
         <nav>
@@ -21,11 +22,13 @@
         </nav>
     </header>
 
+    <!-- 메인 콘텐츠 (헤더에 가려지지 않도록 CSS에서 여백 처리됨) -->
     <section class="sub-page about">
         <div class="section-header">
             <h2>회사소개</h2>
             <p>우리는 단순한 인테리어를 넘어, 운동에 최적화된 하드웨어를 설계합니다.</p>
         </div>
+        
         <div class="features">
             <!-- 1. 커스터마이징(Customizing) -->
             <div class="feature-card">
@@ -61,6 +64,22 @@
             </div>
         </div>
     </section>
+
+    <!-- 공통 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <h2 style="color: var(--accent); margin-bottom: 15px;">Find a solution</h2>
+            <div class="contact-info" style="margin-bottom: 20px;">
+                <p><strong>TEL :</strong> 010-0000-0000 | <strong>EMAIL :</strong> contact@findasolution.com</p>
+                <p><strong>INSTAGRAM :</strong> @findasolution_official</p>
+            </div>
+            <div class="business-info" style="color: #666; font-size: 0.85rem; line-height: 1.8;">
+                <p><strong>상호명 :</strong> 파인드어솔루션   |   <strong>대표자 :</strong> 송인식   |   <strong>TEL :</strong> 010-4092-5906
+                <p><strong>INSTAGRAM :</strong> @findasolution_official   |   <strong>EMAIL :</strong> songinshik1@naver.com</p>
+                <p class="copyright" style="margin-top: 15px; color: #444;">© 2026 Find a solution. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
