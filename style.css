@@ -71,57 +71,55 @@ nav a:hover {
     color: var(--accent);
 }
 
-/* ================= 메인 배너 (index.html) - 위치 및 줄간격 완벽 정밀 조절 ================= */
+/* ================= 메인 배너 (index.html) - 정밀 포지셔닝 ================= */
 .hero {
     height: 100vh;
     min-height: 600px;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* 로고 문구를 가리지 않도록 텍스트를 하단 여백으로 낮춤 */
     align-items: center;
+    justify-content: center;
     text-align: center;
     background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url('main-bg.png') center/cover no-repeat;
-    padding-bottom: 110px; /* 잔디 트랙 상단 경계선에 버튼 안착 */
-    padding-top: 80px;
+    padding-top: 90px;
     box-sizing: border-box;
 }
 
+/* 중앙 정렬 후 translateY로 로고 아래 적벽돌 구간에 미세 안착 */
 .hero-content {
     max-width: 850px;
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
+    transform: translateY(28px); 
 }
 
-/* 메인 타이틀: 로고 문구(FIGHT FOR...) 아래에 위치하며, 아래 설명글과의 12px 간격 */
+/* 메인 타이틀: 골드 컬러 및 촘촘한 줄간격 */
 .hero h1 {
     font-size: 2.1rem;
     font-weight: 800;
     color: var(--accent) !important; 
-    line-height: 1.2;
-    margin-top: 0;
+    line-height: 1.25;
     margin-bottom: 12px;
     word-break: keep-all;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
     letter-spacing: -0.5px;
 }
 
-/* 설명 문구: 줄간격 1.4로 촘촘하고 응축된 2줄로 설정 */
+/* 설명 문구: 줄간격 1.45 응축 배치 */
 .hero p {
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     color: #ffffff !important;
     font-weight: 500;
-    line-height: 1.4;
-    margin-top: 0;
-    margin-bottom: 20px;
+    line-height: 1.45;
+    margin-bottom: 22px;
     word-break: keep-all;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
     opacity: 0.95;
 }
 
-/* 버튼: 슬림하고 깔끔한 비율 */
+/* 버튼: 잔디 트랙 상단 경계선 위치 */
 .btn-primary {
     display: inline-block;
     padding: 10px 26px;
@@ -399,7 +397,10 @@ footer {
         padding: 120px 15px 40px 15px;
         height: auto;
         min-height: 100vh;
-        justify-content: center;
+    }
+
+    .hero-content {
+        transform: translateY(0);
     }
 
     .hero h1 { 
