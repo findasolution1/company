@@ -1,4 +1,4 @@
-/* ================= 기본 설정 ================= */
+/* ================= 기본 설정 (PC 기준) ================= */
 :root {
     --bg-main: #0d0d0d;
     --bg-secondary: #1a1a1a;
@@ -19,6 +19,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     word-break: keep-all;
+    font-size: 16px; /* PC 기본 본문 글자 크기 (시원하게 보임) */
 }
 
 /* ================= 헤더 & 네비게이션 ================= */
@@ -188,13 +189,14 @@ section {
 }
 
 .feature-text h3, .process-text h3, .portfolio-info h3 {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
+/* PC 설명글 크기 */
 .feature-text p, .process-text p, .portfolio-info p {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.95rem; 
 }
 
 .process-text .step-number {
@@ -264,18 +266,17 @@ section {
     font-size: 1rem;
 }
 
-/* ================= 푸터 ================= */
-/* ================= 푸터 (왼쪽 정렬 적용) ================= */
+/* ================= 푸터 (왼쪽 정렬) ================= */
 footer {
     background-color: #050505;
     padding: 40px 5%;
-    text-align: left; /* 왼쪽 정렬로 변경 */
+    text-align: left;
     border-top: 1px solid #222;
 }
 
 .footer-content {
     max-width: 1200px;
-    margin: 0 auto; /* 본문 컨테이너와 라인 맞춤 */
+    margin: 0 auto;
 }
 
 .footer-content h2 {
@@ -290,8 +291,12 @@ footer {
     margin-bottom: 5px;
 }
 
-/* ================= 모바일 반응형 처리 (스마트폰 최적화) ================= */
+/* ================= 모바일 반응형 처리 (스마트폰 전용 축소) ================= */
 @media (max-width: 768px) {
+    body {
+        font-size: 14px; /* 모바일 본문 글자 크기 축소 */
+    }
+
     header {
         flex-direction: column;
         padding: 12px 4%;
@@ -348,6 +353,11 @@ footer {
     .features, .process-grid, .portfolio-grid {
         grid-template-columns: 1fr; 
         gap: 20px;
+    }
+
+    /* 모바일 카드 설명글 크기 축소 */
+    .feature-text p, .process-text p, .portfolio-info p {
+        font-size: 0.85rem;
     }
 
     .contact-container {
