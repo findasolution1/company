@@ -1,9 +1,9 @@
 /* ================= 기본 설정 ================= */
 :root {
     --bg-main: #0d0d0d;
-    --bg-secondary: #1a1a1a;
+    --bg-secondary: #141414;
     --text-main: #f5f5f5;
-    --text-muted: #a3a3a3;
+    --text-muted: #a8a8a8;
     --accent: #d4af37; /* 골드/옐로우 컬러 */
 }
 
@@ -11,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Pretendard', sans-serif;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
 }
 
 html, body {
@@ -34,20 +34,20 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 5%;
-    background-color: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(8px);
+    padding: 20px 6%;
+    background-color: rgba(10, 10, 10, 0.88);
+    backdrop-filter: blur(12px);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-sizing: border-box;
 }
 
 .logo {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--text-main);
     letter-spacing: -0.5px;
@@ -56,13 +56,13 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 24px;
+    gap: 28px;
 }
 
 nav a {
     color: var(--text-main);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     transition: color 0.3s;
 }
@@ -74,7 +74,7 @@ nav a:hover {
 /* ================= 메인 배너 (index.html) ================= */
 .hero {
     height: 100vh;
-    min-height: 600px;
+    min-height: 650px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -86,7 +86,7 @@ nav a:hover {
 }
 
 .hero-content {
-    max-width: 850px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
@@ -95,22 +95,22 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-size: 2.1rem;
+    font-size: 2.3rem;
     font-weight: 800;
     color: var(--accent) !important; 
     line-height: 1.25;
     margin-bottom: 12px;
     word-break: keep-all;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
     letter-spacing: -0.5px;
 }
 
 .hero p {
-    font-size: 0.96rem;
+    font-size: 1rem;
     color: #ffffff !important;
     font-weight: 500;
     line-height: 1.45;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
     word-break: keep-all;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
     opacity: 0.95;
@@ -118,106 +118,117 @@ nav a:hover {
 
 .btn-primary {
     display: inline-block;
-    padding: 10px 26px;
+    padding: 12px 30px;
     background-color: var(--accent);
     color: #000;
     text-decoration: none;
     font-weight: 700;
     border-radius: 4px;
-    font-size: 0.88rem;
-    transition: background 0.3s, transform 0.3s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    font-size: 0.92rem;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
 
 .btn-primary:hover {
     background-color: #fce883;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
 }
 
-/* ================= 공통 섹션 & 서브페이지 ================= */
+/* ================= 공통 섹션 & 서브페이지 (1920x1080 최적화) ================= */
 section {
-    padding: 80px 5%;
+    padding: 90px 5%;
     width: 100%;
     box-sizing: border-box;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     width: 100%;
 }
 
 .section-header h2 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    margin-bottom: 12px;
     color: var(--accent);
     word-break: keep-all;
+    letter-spacing: -0.5px;
 }
 
 .section-header p {
     color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 1.05rem;
     word-break: keep-all;
 }
 
 .sub-page {
-    padding-top: 130px; 
+    padding-top: 140px; 
     min-height: 100vh;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* ================= 그리드 레이아웃 (PC 4장 1줄 고정) ================= */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
+/* ================= 대형 PC 그리드 레이아웃 (최대 폭 1440px로 대폭 확장) ================= */
+.features, .portfolio-grid, .process-grid, .footer-content {
+    max-width: 1440px; /* 기존 1200px -> 1440px 로 대폭 확충 */
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
+/* 회사소개 (About Us): 3열 대형 카드 */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+/* 포트폴리오 & 프로세스: 4열 웅장한 그리드 */
 .portfolio-grid {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
+    gap: 25px;
 }
 
 .process-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
+    gap: 25px;
 }
 
+/* ================= 프리미엄 고급 카드 스타일링 ================= */
 .feature-card, .process-card, .portfolio-item {
-    background-color: var(--bg-secondary);
-    border-radius: 8px;
+    background: #141414;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-top: 3px solid var(--accent);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     width: 100%;
     box-sizing: border-box;
 }
 
+/* 마우스 호버 시 고급 은은한 골드 빛 & 줌인 스케일 */
 .feature-card:hover, .process-card:hover, .portfolio-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.18);
+    border-color: rgba(212, 175, 55, 0.4);
 }
 
+/* 카드 이미지 영역 대폭 확대 (180px -> 260px~300px) */
 .feature-img, .process-img, .portfolio-item .feature-img {
     width: 100%;
-    height: 180px;
+    height: 260px; /* 대형 이미지 시원하게 확대 */
     overflow: hidden;
+    position: relative;
+}
+
+.features .feature-img {
+    height: 300px; /* 회사소개 카드는 300px로 더욱 묵직하게 */
 }
 
 .feature-img img, .process-img img, .portfolio-item img {
@@ -225,24 +236,34 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+/* 호버 시 이미지 부드러운 확대 */
+.feature-card:hover img, .process-card:hover img, .portfolio-item:hover img {
+    transform: scale(1.06);
+}
+
+/* 텍스트 패딩 및 고급 타이포그래피 */
 .feature-text, .process-text, .portfolio-info {
-    padding: 18px;
+    padding: 26px 24px; /* 기존 18px -> 26px 로 여유있게 배치 */
     flex-grow: 1;
     word-break: keep-all;
+    background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(15,15,15,1) 100%);
 }
 
 .feature-text h3, .process-text h3, .portfolio-info h3 {
-    font-size: 1.05rem;
-    margin-bottom: 6px;
+    font-size: 1.25rem; /* 제목 크기 확대 */
+    font-weight: 700;
+    margin-bottom: 10px;
     color: var(--text-main);
+    letter-spacing: -0.3px;
 }
 
 .feature-text p, .process-text p, .portfolio-info p {
     color: var(--text-muted);
-    font-size: 0.85rem; 
-    line-height: 1.45;
+    font-size: 0.95rem; /* 본문 크기 확대 */
+    line-height: 1.6;
 }
 
 /* ================= 페이지네이션 스타일 ================= */
@@ -250,8 +271,8 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    margin-top: 40px;
+    gap: 10px;
+    margin-top: 55px;
     margin-bottom: 20px;
     width: 100%;
 }
@@ -260,14 +281,14 @@ section {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    min-width: 38px;
-    height: 38px;
-    padding: 0 10px;
+    min-width: 42px;
+    height: 42px;
+    padding: 0 12px;
     background-color: var(--bg-secondary);
     color: var(--text-main);
-    border: 1px solid #333;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -277,6 +298,7 @@ section {
     border-color: var(--accent);
     color: var(--accent);
     background-color: #222;
+    transform: translateY(-2px);
 }
 
 .page-btn.active {
@@ -284,6 +306,7 @@ section {
     color: #000;
     border-color: var(--accent);
     font-weight: 800;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 .page-btn.disabled {
@@ -295,13 +318,14 @@ section {
 /* ================= 문의하기 (contact.html) ================= */
 .contact-container {
     display: flex;
-    gap: 30px;
-    max-width: 1000px;
+    gap: 40px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     background-color: var(--bg-secondary);
-    padding: 40px;
-    border-radius: 8px;
+    padding: 50px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-top: 3px solid var(--accent);
     box-sizing: border-box;
 }
@@ -312,15 +336,15 @@ section {
 }
 
 .contact-info-box h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--accent);
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .contact-info-box p {
     color: var(--text-muted);
-    margin-bottom: 20px;
-    font-size: 0.95rem;
+    margin-bottom: 24px;
+    font-size: 1rem;
 }
 
 .contact-info-box ul {
@@ -328,29 +352,29 @@ section {
 }
 
 .contact-info-box ul li {
-    margin-bottom: 12px;
-    font-size: 0.95rem;
+    margin-bottom: 14px;
+    font-size: 1rem;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
 }
 
 .form-group input, 
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    background-color: #222;
-    border: 1px solid #444;
+    padding: 14px;
+    background-color: #1c1c1c;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 1rem;
     box-sizing: border-box;
 }
@@ -358,44 +382,48 @@ section {
 /* ================= 푸터 ================= */
 footer {
     background-color: #050505;
-    padding: 40px 5%;
+    padding: 50px 5%;
     text-align: left;
-    border-top: 1px solid #222;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     width: 100%;
-    box-sizing: border-box;
-}
-
-.footer-content {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
     box-sizing: border-box;
 }
 
 .footer-content h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--accent);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .contact-info p, .business-info p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     word-break: break-word;
     overflow-wrap: break-word;
 }
 
 /* ================= 태블릿 / 모바일 반응형 처리 ================= */
-@media (max-width: 900px) {
-    .portfolio-grid {
+@media (max-width: 1200px) {
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .portfolio-grid, .process-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
     }
 }
 
-@media (max-width: 600px) {
-    .portfolio-grid {
+@media (max-width: 768px) {
+    .features, .portfolio-grid, .process-grid {
         grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .feature-img, .process-img, .portfolio-item .feature-img, .features .feature-img {
+        height: 210px; /* 모바일 전용 수분감 보장 높이 */
     }
 
     body {
@@ -479,28 +507,28 @@ footer {
     }
 
     .pagination {
-        gap: 4px;
-        margin-top: 30px;
+        gap: 5px;
+        margin-top: 35px;
     }
 
     .page-btn {
-        min-width: 32px;
-        height: 32px;
+        min-width: 34px;
+        height: 34px;
         padding: 0 6px;
-        font-size: 0.8rem;
+        font-size: 0.82rem;
     }
 
     .feature-text, .process-text, .portfolio-info {
-        padding: 16px;
+        padding: 18px;
     }
 
     .contact-container {
         flex-direction: column;
-        padding: 20px 15px;
+        padding: 25px 20px;
         gap: 25px;
     }
 
     footer {
-        padding: 25px 4%;
+        padding: 30px 4%;
     }
 }
