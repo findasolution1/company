@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>시공사례 - Find a solution</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
+    
+    <!-- 헤더 & 네비게이션 -->
     <header>
         <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">FIND A SOLUTION</a></div>
         <nav>
@@ -15,45 +17,31 @@
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="about.html">회사소개</a></li>
                 <li><a href="process.html">프로세스</a></li>
-                <li><a href="portfolio.html">포트폴리오</a></li>
+                <li><a href="portfolio.html" style="color: var(--accent);">포트폴리오</a></li>
                 <li><a href="contact.html">문의하기</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="sub-page portfolio">
+    <!-- 시공사례 본문 섹션 -->
+    <section class="sub-page">
         <div class="section-header">
-            <h2>포트폴리오</h2>
-            <p>Find a solution이 완성한 최적의 훈련 공간들입니다.</p>
+            <h2>Portfolio</h2>
+            <p>파인드어솔루션이 직접 설계하고 시공한 스포츠 공간을 확인해보세요.</p>
         </div>
-        
-        <!-- 시공사례 그리드를 가운데 정렬하고 너비를 맞추기 위한 컨테이너 추가 -->
-        <div class="portfolio-grid" style="max-width: 1200px; margin: 0 auto;">
-            <div class="portfolio-item" style="background-color: var(--bg-secondary); border-radius: 8px; overflow: hidden;">
-                <img alt="복싱링 시공" src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 250px; object-fit: cover;">
-                <div class="portfolio-info" style="padding: 20px;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 5px;">강남 OOO 복싱짐</h3>
-                    <p style="color: var(--accent); font-size: 0.9rem;">커스텀 복싱링 & 조명 설계</p>
-                </div>
-            </div>
-            <div class="portfolio-item" style="background-color: var(--bg-secondary); border-radius: 8px; overflow: hidden;">
-                <img alt="크로스핏 바닥 시공" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 250px; object-fit: cover;">
-                <div class="portfolio-info" style="padding: 20px;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 5px;">성수 OOO 크로스핏</h3>
-                    <p style="color: var(--accent); font-size: 0.9rem;">고밀도 고무매트 & 리깅 설치</p>
-                </div>
-            </div>
-            <div class="portfolio-item" style="background-color: var(--bg-secondary); border-radius: 8px; overflow: hidden;">
-                <img alt="피트니스 센터 시공" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 250px; object-fit: cover;">
-                <div class="portfolio-info" style="padding: 20px;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 5px;">판교 OOO 피트니스</h3>
-                    <p style="color: var(--accent); font-size: 0.9rem;">프리웨이트존 에버롤 & 머신존 시공</p>
-                </div>
-            </div>
+
+        <!-- 4열 1줄 그리드 영역 -->
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- 자바스크립트에 의해 페이지별 4개씩 동적 생성됩니다 -->
+        </div>
+
+        <!-- 페이지네이션 UI (1 ~ 10 페이지) -->
+        <div class="pagination" id="pagination">
+            <!-- 자바스크립트가 페이지 버튼을 생성합니다 -->
         </div>
     </section>
 
-    <!-- 공통 푸터 -->
+    <!-- 푸터 -->
     <footer>
         <div class="footer-content">
             <h2 style="color: var(--accent); margin-bottom: 15px;">파인드어솔루션</h2>
@@ -67,5 +55,113 @@
             </div>
         </div>
     </footer>
+
+    <!-- 포트폴리오 10페이지 데이터 & 페이지네이션 동작 스크립트 -->
+    <script>
+        // 대표 이미지 샘플 모음
+        const images = [
+            "main-bg.png",
+            "sandbag.png",
+            "rubber-mat.jpg",
+            "turf-floor.jpg",
+            "custom-bag.jpg"
+        ];
+
+        // 10페이지 x 4개(4열 1줄) = 총 40개 시공사례 데이터 생성
+        const portfolioData = [];
+        const gymTypes = ["크로스핏 박스", "복싱 클럽", "피트니스 센터", "필라테스 스튜디오", "태권도장", "MMA 격투기 짐"];
+        const locations = ["강남", "성수", "한남", "홍대", "판교", "송도", "청담", "광교", "분당", "서초", "용산", "일산", "마포", "송파", "하남", "수원"];
+
+        let count = 1;
+        for (let page = 1; page <= 10; page++) {
+            for (let i = 0; i < 4; i++) { // 한 페이지당 4개(4열 1줄)
+                const loc = locations[(count - 1) % locations.length];
+                const type = gymTypes[(count - 1) % gymTypes.length];
+                const img = images[(count - 1) % images.length];
+
+                portfolioData.push({
+                    id: count,
+                    title: `${loc} ${type} 시공`,
+                    desc: `고밀도 매트 및 맞춤형 ${type} 전용 커스텀 설계`,
+                    image: img,
+                    page: page
+                });
+                count++;
+            }
+        }
+
+        let currentPage = 1;
+
+        function renderPortfolio(page) {
+            const grid = document.getElementById("portfolioGrid");
+            grid.innerHTML = "";
+
+            const pageItems = portfolioData.filter(item => item.page === page);
+
+            pageItems.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "portfolio-item";
+                card.innerHTML = `
+                    <div class="feature-img">
+                        <img src="${item.image}" alt="${item.title}" onerror="this.src='main-bg.png'">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>${item.title}</h3>
+                        <p>${item.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            renderPagination();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderPagination() {
+            const paginationContainer = document.getElementById("pagination");
+            paginationContainer.innerHTML = "";
+
+            // 이전 버튼
+            const prevBtn = document.createElement("button");
+            prevBtn.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
+            prevBtn.innerHTML = "&lt;";
+            prevBtn.onclick = () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPortfolio(currentPage);
+                }
+            };
+            paginationContainer.appendChild(prevBtn);
+
+            // 1 ~ 10 페이지 번호 버튼
+            for (let i = 1; i <= 10; i++) {
+                const pageBtn = document.createElement("button");
+                pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                pageBtn.innerText = i;
+                pageBtn.onclick = () => {
+                    currentPage = i;
+                    renderPortfolio(currentPage);
+                };
+                paginationContainer.appendChild(pageBtn);
+            }
+
+            // 다음 버튼
+            const nextBtn = document.createElement("button");
+            nextBtn.className = `page-btn ${currentPage === 10 ? 'disabled' : ''}`;
+            nextBtn.innerHTML = "&gt;";
+            nextBtn.onclick = () => {
+                if (currentPage < 10) {
+                    currentPage++;
+                    renderPortfolio(currentPage);
+                }
+            };
+            paginationContainer.appendChild(nextBtn);
+        }
+
+        // 초기 1페이지 로드
+        document.addEventListener("DOMContentLoaded", () => {
+            renderPortfolio(1);
+        });
+    </script>
 </body>
 </html>
