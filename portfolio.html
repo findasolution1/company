@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>포트폴리오 - Find a solution</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
     
@@ -123,7 +123,7 @@
 
             // 1. 맨 처음 페이지 버튼 (<<)
             const firstBtn = document.createElement("button");
-            firstBtn.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
+            firstBtn.className = `page-btn arrow-btn ${currentPage === 1 ? 'disabled' : ''}`;
             firstBtn.innerHTML = "&laquo;";
             firstBtn.title = "맨 처음 페이지";
             firstBtn.onclick = () => {
@@ -136,7 +136,7 @@
 
             // 2. 이전 페이지 버튼 (<)
             const prevBtn = document.createElement("button");
-            prevBtn.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
+            prevBtn.className = `page-btn arrow-btn ${currentPage === 1 ? 'disabled' : ''}`;
             prevBtn.innerHTML = "&lt;";
             prevBtn.title = "이전 페이지";
             prevBtn.onclick = () => {
@@ -161,7 +161,7 @@
 
             // 4. 다음 페이지 버튼 (>)
             const nextBtn = document.createElement("button");
-            nextBtn.className = `page-btn ${currentPage === 10 ? 'disabled' : ''}`;
+            nextBtn.className = `page-btn arrow-btn ${currentPage === 10 ? 'disabled' : ''}`;
             nextBtn.innerHTML = "&gt;";
             nextBtn.title = "다음 페이지";
             nextBtn.onclick = () => {
@@ -174,7 +174,7 @@
 
             // 5. 맨 끝 페이지 버튼 (>>)
             const lastBtn = document.createElement("button");
-            lastBtn.className = `page-btn ${currentPage === 10 ? 'disabled' : ''}`;
+            lastBtn.className = `page-btn arrow-btn ${currentPage === 10 ? 'disabled' : ''}`;
             lastBtn.innerHTML = "&raquo;";
             lastBtn.title = "맨 끝 페이지";
             lastBtn.onclick = () => {
