@@ -27,7 +27,7 @@
     <section class="sub-page">
         <div class="section-header">
             <h2>Portfolio</h2>
-            <p>파인드어솔루션이 직접 설계하고 시공한 스포츠 공간을 확인해보세요.</p>
+            <p>우리 파인드어솔루션이 직접 시공한 현장입니다</p>
         </div>
 
         <!-- 4장 1줄 고정 그리드 -->
@@ -35,7 +35,7 @@
             <!-- JS로 4개씩 동적 출력 -->
         </div>
 
-        <!-- 1 ~ 10 페이지 버튼 -->
+        <!-- 1 ~ 10 페이지 및 양끝 이동 버튼 -->
         <div class="pagination" id="pagination">
             <!-- JS로 페이지 버튼 생성 -->
         </div>
@@ -48,7 +48,7 @@
             <div class="contact-info" style="margin-bottom: 20px;">
                 <p><strong>대표자 :</strong> 송인식 &nbsp;|&nbsp; <strong>TEL :</strong> <a href="tel:010-4092-5906" style="color: inherit; text-decoration: none;">010-4092-5906</a></p>
                 <p><strong>E-MAIL :</strong> <a href="mailto:songinshik1@naver.com" style="color: inherit; text-decoration: none;">songinshik1@naver.com</a></p>
-                <p><strong>Instagram :</strong> @findasolution_official</p>
+                <p><strong>Instagram :</strong> <a href="https://www.instagram.com/findasolution_official" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">@findasolution_official</a></p>
             </div>
             <div class="business-info" style="color: #666; font-size: 0.85rem; line-height: 1.8;">
                 <p class="copyright" style="margin-top: 15px; color: #444;">© 2026 Find a solution. All rights reserved.</p>
@@ -121,10 +121,24 @@
             const paginationContainer = document.getElementById("pagination");
             paginationContainer.innerHTML = "";
 
-            // 이전 버튼
+            // 1. 맨 처음 페이지 버튼 (<<)
+            const firstBtn = document.createElement("button");
+            firstBtn.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
+            firstBtn.innerHTML = "&laquo;";
+            firstBtn.title = "맨 처음 페이지";
+            firstBtn.onclick = () => {
+                if (currentPage !== 1) {
+                    currentPage = 1;
+                    renderPortfolio(1);
+                }
+            };
+            paginationContainer.appendChild(firstBtn);
+
+            // 2. 이전 페이지 버튼 (<)
             const prevBtn = document.createElement("button");
             prevBtn.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
             prevBtn.innerHTML = "&lt;";
+            prevBtn.title = "이전 페이지";
             prevBtn.onclick = () => {
                 if (currentPage > 1) {
                     currentPage--;
@@ -133,7 +147,7 @@
             };
             paginationContainer.appendChild(prevBtn);
 
-            // 1 ~ 10 페이지 번호 버튼
+            // 3. 1 ~ 10 페이지 번호 버튼
             for (let i = 1; i <= 10; i++) {
                 const pageBtn = document.createElement("button");
                 pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
@@ -145,10 +159,11 @@
                 paginationContainer.appendChild(pageBtn);
             }
 
-            // 다음 버튼
+            // 4. 다음 페이지 버튼 (>)
             const nextBtn = document.createElement("button");
             nextBtn.className = `page-btn ${currentPage === 10 ? 'disabled' : ''}`;
             nextBtn.innerHTML = "&gt;";
+            nextBtn.title = "다음 페이지";
             nextBtn.onclick = () => {
                 if (currentPage < 10) {
                     currentPage++;
@@ -156,6 +171,19 @@
                 }
             };
             paginationContainer.appendChild(nextBtn);
+
+            // 5. 맨 끝 페이지 버튼 (>>)
+            const lastBtn = document.createElement("button");
+            lastBtn.className = `page-btn ${currentPage === 10 ? 'disabled' : ''}`;
+            lastBtn.innerHTML = "&raquo;";
+            lastBtn.title = "맨 끝 페이지";
+            lastBtn.onclick = () => {
+                if (currentPage !== 10) {
+                    currentPage = 10;
+                    renderPortfolio(10);
+                }
+            };
+            paginationContainer.appendChild(lastBtn);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
